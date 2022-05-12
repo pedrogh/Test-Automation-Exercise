@@ -1,0 +1,12 @@
+{
+  "baseUrl": "https://app.staging.guidecx.io",
+  "defaultCommandTimeout": 30000,
+  "reporter": "cypress-mochawesome-reporter",
+  "reporterOptions": {
+    "reportDir": "cypress/report",
+    "charts": true,
+    "reportPageTitle": "Test Automation Exercise",
+    "inlineAssets": true,
+    "embeddedScreenshots": true
+  }
+}

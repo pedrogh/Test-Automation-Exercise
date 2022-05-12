@@ -1,0 +1,19 @@
+{
+  "name": "guidecx_exercise",
+  "version": "1.0.0",
+  "description": "Testing exercise for guidecx",
+  "main": "index.js",
+  "scripts": {
+    "tests": "cypress run --browser chrome --headed",
+    "tests_chrome_headless": "cypress run --browser chrome",
+    "tests_electron": "cypress run --headed",
+    "tests_electron_headless": "cypress run --headless",
+    "open": "cypress open"
+  },
+  "author": "P. Fajardo",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.6.1",
+    "cypress-mochawesome-reporter": "^3.0.1"
+  }
+}
