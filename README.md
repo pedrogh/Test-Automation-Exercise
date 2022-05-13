@@ -66,11 +66,22 @@ To run the tests:
 docker run --env CYPRESS_GCX_EMAIL=${CYPRESS_GCX_EMAIL} --env CYPRESS_GCX_PASSWORD=${CYPRESS_GCX_PASSWORD} -it --rm exercise tests
 ```
 
-The videos, screenshots and reports are generated inside the container and for the purpose of this exercise they won't be visible to you unless you shell into the container. If you'd like to see them run:
+The videos, screenshots and reports are generated inside the container and for the purpose of this exercise they won't be visible to you unless you shell into the container. If you'd like to see evidence of this output, run:
 
 ```
 docker run --entrypoint /bin/bash --env CYPRESS_GCX_EMAIL=${CYPRESS_GCX_EMAIL} --env CYPRESS_GCX_PASSWORD=${CYPRESS_GCX_PASSWORD} -it --rm exercise
 ```
+When in the shell, run:
+```
+ls cypress/videos
+```
+
+or 
+```
+ls cypress/report
+```
+
+If you don't have node on your machine you can also run the tests as stated above after you're in the container.  Note: In Docker you'll only be able to run the tests but will not be able to see the browser until you have forwarded output to a viewer like VNC.
 
 ## Tests reports
 When the tests run a report is generated in the directory `cypress\report` which you can open with a browser.
