@@ -2,11 +2,13 @@
 The content of this project is the implementation of some tests using the [Cypress](https://www.cypress.io/) testing framework.
 
 ## To run the tests
-There is a lengthy explanation in the rest of the documents but in case you want to get to the fun part I added this section first.
+There is a lengthy explanation in the rest of the document but in case you want to get to the fun part I added this section first.
 
 Export the two environment variables with the respective values sent to you via email.
+```
 export CYPRESS_GCX_EMAIL=
 export CYPRESS_GCX_PASSWORD=
+```
 
 I did it this way to avoid checking in credentials in GitHub.
 
@@ -23,7 +25,7 @@ npm install
 ```
 npm run tests
 ```
-This command will run the tests in chrome on your machine using the whatever version of chrome is installed on your machine.
+This command will run the tests using ther version of chrome is installed on your machine.
 
 
 ### Run the tests with `npm` and headless `chrome`
@@ -53,7 +55,7 @@ To run either one of the tests click on the test name shown in the image.
 
 
 ### To run the tests in a Docker container
-Assuming you have Docker on your machine and have the two environment variables mentioned above set you can run the tests in Docker as follows.
+Assuming you have `docker` on your machine and have set the two environment variables mentioned above you can run the tests in Docker as follows:
 
 (I realize this is not the same as Dockerizing the tests)
 
@@ -64,7 +66,7 @@ docker run --env CYPRESS_GCX_EMAIL=${CYPRESS_GCX_EMAIL} --env CYPRESS_GCX_PASSWO
 Since the command is mounting your current working directory as a volume all the tests are loaded into the image and all the output files are written into your directory.
 
 ## Tests report
-When the tests run a report is generated in the directory `cypress\report` which you can open in your browser.
+When the tests run a report is generated in the directory `cypress\report` which you can open with a browser.
 
 ![Tests report](readme_images/tests_report.png)
 
@@ -72,11 +74,13 @@ When the tests run a report is generated in the directory `cypress\report` which
 # About The Tests
 I used the tests to demonstrate the capabilities of Cypress.
 
-This project tries to separate data needed to run the tests, including the definitions of the elements for the selector operations, from the tests and from "page" objects that use those elements.
+This project tries to separate the data needed to run the tests, including the definitions of the elements for the selector operations, from the tests and from "page" objects that use those elements.
 
-I write "page" object above in quotes because the type of page object model (POM) used in this project is not the usual POM method where data and functions to drive the web page live together. In this exercise data is separate from the functions that drive the tests so as to:
+I write "page" object above in quotes because the type of page object model (POM) used in this project is not the usual POM method where data and functions to drive the web page live together in a class. In this exercise data is separate from the functions that drive the tests so as to:
 - Avoid keeping state within the page object.
 - Make it more flexible to feed different data to the same page object.
+
+All that while maintaining a distinction between tests, code to access a given page, and data used by the tests.
 
 ## validateCanLogin.specs
 This test uses the basic capabilities of Cypress. 
@@ -102,12 +106,12 @@ The other two test cases address the edge cases I allowed myself to write w/o sp
 `'Add team member with incorrect email address'` Fails on what I think is a behavior that should not be allowed which is to create an email without a full domain after the `@`
 
 ## Observations
-- As I was writing tests the code kept adding team members on the project and it became a bit overwhelming to look for the most recent tests elements.  I look for a way, but could not find one, to delete the team members.  It would be a nice feature/ability to have for people who might submit coding exercises in the future
-- https://app.staging.guidecx.io/auth/login could set the focus on the email address field.
+- As I was writing tests the code kept adding team members to the project and it became a bit overwhelming to look for the most recent tests elements.  I looked for a way, but could not find one, to delete the team members.  Being able to delete team members would be a nice feature to have for people who might submit coding exercises in the future. If the feature already exists then apologies.
+- Setting the focus on the email address field in the [Auth page](https://app.staging.guidecx.io/auth/login) would be nice.
 - Resetting password didn't work more than once.
-- I think there should be an <o> to view the password in plain text.
-- On the other hand I noticed that while typing the password the value is reflected in the DOM if one has the elements view open.
-- Resend invite.  As I was becoming familiar with the app I typed in a password that I could not remember.  I tried resetting the password but that didn't work for me.  I tried resending the invite at least 3 times, eventually one of the links in the email from the resend invite function took me to page that displayed the image below.
+- I think there should be an eye (<o>) to view the password in plain text.
+- On the other hand I noticed that while typing the password the value is reflected in the DOM if one has the elements view open in the browser.
+- Resend invite.  As I was becoming familiar with the app I typed in a password that I could not remember.  I tried resetting the password but that didn't work for me.  I tried resending the invite at least 3 times, eventually one of the links in the email from the resend invite function took me to page that displayed the image below.  Fortunately I was able to remember the password.
 ![Resend invite error page](readme_images/after_clicking_on_resend_invite_link.png)
 - There are a few `delay(...)` statements which I don't like especially since Cypress allows you to do "smart" waits.  See function `addTeamMember` but I wanted to submit this exercise.
-- It was hard to not use data tests IDs only.  There is one case in the selectors where we use a class definition. For example see file `cypress/data/projects_data.js`
+- I tried to use data tests IDs only for the selectors. There is one case in the selectors where we use a class definition. For example see file `cypress/data/projects_data.js`
