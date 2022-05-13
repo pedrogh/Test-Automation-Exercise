@@ -53,7 +53,6 @@ To run either one of the tests click on the test name shown in the image.
 
 ![Cypress UI](readme_images/Cypress_UI.png)
 
-
 ### To run the tests in a Docker container
 Assuming you have `docker` on your machine and have set the two environment variables mentioned above you can run the tests in Docker as follows:
 
@@ -65,11 +64,16 @@ docker run --env CYPRESS_GCX_EMAIL=${CYPRESS_GCX_EMAIL} --env CYPRESS_GCX_PASSWO
 
 Since the command is mounting your current working directory as a volume all the tests are loaded into the image and all the output files are written into your directory.
 
-## Tests report
+## Tests reports
 When the tests run a report is generated in the directory `cypress\report` which you can open with a browser.
 
 ![Tests report](readme_images/tests_report.png)
 
+The following directories also get created:
+
+`cypress/screenshots` - Screenshots of any failed tests
+
+`cypress/videos` - Videos of the tests as they run whether they test pass or fail.
 
 # About The Tests
 I used the tests to demonstrate the capabilities of Cypress.
@@ -103,7 +107,7 @@ The other two test cases address the edge cases I allowed myself to write w/o sp
 
 `'Add user with fields empty should not close the drawer'` Doesn't fill the form and assert that the form remains after clicking on the button to submit.
 
-`'Add team member with incorrect email address'` Fails on what I think is a behavior that should not be allowed which is to create an email without a full domain after the `@`
+`'Add team member with incorrect email address'` Fails on what I think is a behavior that should not be allowed which is to create an email without a full domain after the `@`.  I've seen it a couple of times where there is a conflict between the `getter` of the element and the assertion and this test will give us a false positive result.
 
 ## Observations
 - As I was writing tests the code kept adding team members to the project and it became a bit overwhelming to look for the most recent tests elements.  I looked for a way, but could not find one, to delete the team members.  Being able to delete team members would be a nice feature to have for people who might submit coding exercises in the future. If the feature already exists then apologies.
