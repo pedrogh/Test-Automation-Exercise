@@ -11,7 +11,7 @@ export function login() {
   cy.get(loginData.login.email)
     .type(Cypress.env('GCX_EMAIL'));
   cy.get(loginData.login.password)
-    .type(Cypress.env('CYPRESS_GCX_PASSWORD'));
+    .type(Cypress.env('GCX_PASSWORD'));
   cy.get(loginData.login.login_button)
   .contains(loginData.login.login_button_text)
     .click();
