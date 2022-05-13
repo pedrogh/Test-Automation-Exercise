@@ -120,4 +120,5 @@ The other two test cases address the edge cases I allowed myself to write w/o sp
 - There are a few `delay(...)` statements which I don't like especially since Cypress allows you to do "smart" waits.  See function `addTeamMember` but I wanted to submit this exercise.  You can try to change the timeout in the cypress.json file if you want.  Look for "defaultCommandTimeout": 30000
 - I tried to use data tests IDs only for the selectors. There is one case in the selectors where we use a class definition. For example see file `cypress/data/projects_data.js`
 - On my old machine the video compression takes a while.  Hopefully it is not so slow on your machine.
+- Sometimes when running the tests with headed Chrome the a downloads popup shows up.  I don't know where this comes from.  It doesn't affect the tests, it is annoying.  You can try running the tests headless in either chrome or electron.
 
