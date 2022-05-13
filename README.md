@@ -52,17 +52,25 @@ To run all the tests click on "Run 2 integration tests" indicated in the image b
 To run either one of the tests click on the test name shown in the image.
 
 ![Cypress UI](readme_images/Cypress_UI.png)
-
-### To run the tests in a Docker container
+### Build a Docker image of this project and run the tests
 Assuming you have `docker` on your machine and have set the two environment variables mentioned above you can run the tests in Docker as follows:
 
-(I realize this is not the same as Dockerizing the tests)
+To build the image:
 
 ```
-docker run --env CYPRESS_GCX_EMAIL=${CYPRESS_GCX_EMAIL} --env CYPRESS_GCX_PASSWORD=${CYPRESS_GCX_PASSWORD} -it -v $PWD:/e2e -w /e2e cypress/included:9.6.1
+docker build -t exercise .
 ```
 
-Since the command is mounting your current working directory as a volume all the tests are loaded into the image and all the output files are written into your directory.
+To run the tests:
+```
+docker run --env CYPRESS_GCX_EMAIL=${CYPRESS_GCX_EMAIL} --env CYPRESS_GCX_PASSWORD=${CYPRESS_GCX_PASSWORD} -it --rm exercise tests
+```
+
+The videos, screenshots and reports are generated inside the container and for the purpose of this exercise they won't be visible to you unless you shell into the container. If you'd like to see them run:
+
+```
+docker run --entrypoint /bin/bash --env CYPRESS_GCX_EMAIL=${CYPRESS_GCX_EMAIL} --env CYPRESS_GCX_PASSWORD=${CYPRESS_GCX_PASSWORD} -it --rm exercise
+```
 
 ## Tests reports
 When the tests run a report is generated in the directory `cypress\report` which you can open with a browser.
