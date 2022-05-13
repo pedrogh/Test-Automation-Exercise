@@ -117,5 +117,7 @@ The other two test cases address the edge cases I allowed myself to write w/o sp
 - On the other hand I noticed that while typing the password the value is reflected in the DOM if one has the elements view open in the browser.
 - Resend invite.  As I was becoming familiar with the app I typed in a password that I could not remember.  I tried resetting the password but that didn't work for me.  I tried resending the invite at least 3 times, eventually one of the links in the email from the resend invite function took me to page that displayed the image below.  Fortunately I was able to remember the password.
 ![Resend invite error page](readme_images/after_clicking_on_resend_invite_link.png)
-- There are a few `delay(...)` statements which I don't like especially since Cypress allows you to do "smart" waits.  See function `addTeamMember` but I wanted to submit this exercise.
+- There are a few `delay(...)` statements which I don't like especially since Cypress allows you to do "smart" waits.  See function `addTeamMember` but I wanted to submit this exercise.  You can try to change the timeout in the cypress.json file if you want.  Look for "defaultCommandTimeout": 30000
 - I tried to use data tests IDs only for the selectors. There is one case in the selectors where we use a class definition. For example see file `cypress/data/projects_data.js`
+- On my old machine the video compression takes a while.  Hopefully it is not so slow on your machine.
+
