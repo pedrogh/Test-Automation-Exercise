@@ -132,7 +132,7 @@ The other two test cases address the edge cases I allowed myself to write w/o sp
 - As I was writing tests the code kept adding team members to the project and it became a bit overwhelming to look for the most recent tests elements.  I looked for a way, but could not find one, to delete the team members.  Being able to delete team members would be a nice feature to have for people who might submit coding exercises in the future. If the feature already exists then apologies.
 - Setting the focus on the email address field in the [Auth page](https://app.staging.guidecx.io/auth/login) would be nice.
 - Resetting password didn't work more than once.
-- IMO an eye icons ![eye](readme_images/eye_icons.png) to allow users to view the password in plain text as one is typing would be nice.
+- IMO eye icons ![eye](readme_images/eye_icons.png) to allow users to view the password in plain text as one is typing would be nice.
 - On the other hand I noticed that while typing the password the value is reflected in the DOM if one has the elements view open in the browser.
 - Resend invite.  As I was becoming familiar with the app I typed in a password that I could not remember.  I tried resetting the password but that didn't work for me.  I tried resending the invite at least 3 times, eventually one of the links in the email from the resend invite function took me to page that displayed the image below.  Fortunately I was able to remember the password.
 ![Resend invite error page](readme_images/after_clicking_on_resend_invite_link.png)
