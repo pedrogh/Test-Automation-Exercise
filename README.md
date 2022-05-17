@@ -25,14 +25,14 @@ npm install
 ```
 npm run tests
 ```
-This command will run the tests using the version of chrome installed on your machine.
+This command will run the tests, in `headed` mode, using the version of chrome installed on your machine.
 
 
 ### Run the tests with `npm` and headless `chrome`
 ```
 npm run tests_chrome_headless
 ```
-This command will run the tests from your machine using `chrome`
+This command will run the tests from your machine using `chrome` in `headless` mode.
 
 ### Other options
 To see what other options are there to run the tests type
